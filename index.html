@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SARESP 2026 · 3ª série EM | Guia + Resolução </title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #041a3a, #0a2f6c);
+            margin: 0;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            max-width: 1360px;
+            margin: 0 auto;
+            background: #0f1a24;
+            border-radius: 32px;
+            border: 1px solid #d32f2f;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        /* header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 47, 108, 0.9);
+            padding: 16px 28px;
+            border-bottom: 1px solid rgba(211, 47, 47, 0.4);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-area img {
+            height: 52px;
+            width: auto;
+            background: white;
+            border-radius: 12px;
+            padding: 6px 8px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .logo-text span:first-child {
+            color: #ffec9e;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .logo-text span:last-child {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.7rem;
+        }
+
+        .title-badge {
+            background: #d32f2f;
+            color: white;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .content {
+            background: #f9fafc;
+            padding: 2rem 2rem 2rem;
+        }
+
+        .hero {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+            border-left: 6px solid #d32f2f;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #041a3a, #0a2f6c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .badge-data {
+            background: #0a2f6c;
+            color: white;
+            border-radius: 60px;
+            padding: 0.25rem 1rem;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-top: 12px;
+        }
+
+        /* live section */
+        .live-section {
+            background: #0f1a24;
+            border-radius: 28px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #d32f2f;
+        }
+
+        .live-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.2rem;
+            color: white;
+        }
+
+        .live-header .pulse {
+            background: #d32f2f;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; transform: scale(0.9);}
+            100% { opacity: 1; transform: scale(1.2); background-color: #ff5c5c;}
+        }
+
+        .live-header h2 {
+            color: #ffec9e;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .live-link {
+            display: inline-flex;
+            gap: 10px;
+            background: #d32f2f;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        /* abas */
+        .tab-container {
+            margin: 2rem 0 1rem;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 8px;
+            border-bottom: 2px solid #e0e7ed;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 0.8rem 1.6rem;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #4a627a;
+            transition: 0.2s;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .tab-btn.active {
+            color: #d32f2f;
+            background: white;
+            border-bottom: 3px solid #d32f2f;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem;
+            animation: fade 0.2s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from { opacity: 0; transform: translateY(5px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* estilos gerais */
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #041a3a;
+            border-left: 6px solid #d32f2f;
+            padding-left: 1rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0a2f6c;
+            margin: 1.2rem 0 0.5rem;
+            border-bottom: 2px dotted #d32f2f;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 1rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            border: 1px solid #e0e7ed;
+            padding: 10px 12px;
+            vertical-align: top;
+        }
+
+        th {
+            background: #eef2fa;
+            font-weight: 700;
+        }
+
+        .card-info {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #d32f2f;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .item-destaque {
+            background: #fefaf0;
+            border-left: 4px solid #d32f2f;
+            padding: 1rem;
+            border-radius: 20px;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            border-top: 2px dashed #cddae9;
+            padding: 1.5rem 0.5rem 0;
+            font-size: 0.8rem;
+            color: #4a627a;
+        }
+
+        @media (max-width: 750px) {
+            body { padding: 1rem; }
+            .content { padding: 1.2rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .tab-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+            th, td { padding: 6px; }
+        }
+    </style>
+</head>
+<body>
+<div class="main-container">
+    <div class="header">
+        <div class="logo-area">
+            <img src="https://i.ibb.co/0p01LzxB/logo3de.jpg" alt="Logo SEDUC São Paulo">
+            <div class="logo-text">
+                <span>📊 SARESP 2026</span>
+                <span>3ª série do Ensino Médio</span>
+            </div>
+        </div>
+        <div class="title-badge">Guia completo + Resolução + Anexos</div>
+    </div>
+
+    <div class="content">
+        <div class="hero">
+            <h1>🧭 SARESP 3ª Série EM · Junho 2026</h1>
+            <p>Orientações oficiais, mapa de conteúdos, análise de itens, resolução SEDUC e cronogramas extras.</p>
+            <div class="badge-data">📅 Prova principal: 23/06/2026 | 🧪 Extra: 26/06/2026 | 48 itens (LP + Matemática)</div>
+        </div>
+
+        <!-- LIVE -->
+        <div class="live-section">
+            <div class="live-header">
+                <div class="pulse"></div>
+                <h2>📡 LIVE </h2>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/bRxgYW7o0qs" title="Live SARESP 2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <a href="https://www.youtube.com/live/bRxgYW7o0qs" target="_blank" class="live-link">🔗 Assistir no YouTube →</a>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.8rem; margin-top: 0.8rem;">Acompanhe as orientações, análise de itens e estratégias para o SARESP 2026.</p>
+        </div>
+
+        <!-- ABAS -->
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="guia">📘 Guia SARESP 3EM</button>
+                <button class="tab-btn" data-tab="resolucao">📜 Resolução SEDUC nº 58/2026</button>
+                <button class="tab-btn" data-tab="anexos">📅 Anexos essenciais (datas extras + Provão + pesos)</button>
+            </div>
+
+            <!-- ABA 1: GUIA COMPLETO -->
+            <div id="guia" class="tab-content active">
+                <h2>🎯 Objetivos e especificações</h2>
+                <div class="grid-2col">
+                    <div class="card-info">
+                        <h3>Por que a prova no meio do ano?</h3>
+                        <ul style="margin-left: 1.2rem;">
+                            <li>Retomar a série histórica do Ensino Médio</li>
+                            <li>Identificar lacunas de aprendizagem antes do fim do ano</li>
+                            <li>Indicador preliminar de desempenho por nível</li>
+                            <li>Focar no essencial e preparar para o Provão Paulista</li>
+                        </ul>
+                    </div>
+                    <div class="card-info">
+                        <h3>Especificações da prova</h3>
+                        <p><strong>Público:</strong> 3ª série EM<br>
+                        <strong>Componentes:</strong> Língua Portuguesa (24 itens) e Matemática (24 itens)<br>
+                        <strong>Formato:</strong> múltipla escolha, digital<br>
+                        <strong>Duração:</strong> até 3 horas (permanência mínima 1h30)</p>
+                    </div>
+                </div>
+
+                <h2>🗺️ Mapa SARESP 3EM – Conteúdos avaliados</h2>
+                <div class="grid-2col">
+                    <div class="card-info">
+                        <h3>📖 Língua Portuguesa</h3>
+                        <ul>
+                            <li>Sentido de palavras (sinônimos, antônimos, conotação)</li>
+                            <li>Coesão textual: conjunções, advérbios, articuladores</li>
+                            <li>Figuras de linguagem (metáfora, ironia, eufemismo, antítese)</li>
+                            <li>Variedades linguísticas, norma-padrão</li>
+                            <li>Intertextualidade, discurso direto/indireto</li>
+                            <li>Compreensão global, inferências, relação texto verbal/não verbal</li>
+                            <li>Gêneros: literário, divulgação científica, artigo de opinião</li>
+                            <li>Argumentação, tipos de argumento, persuasão</li>
+                        </ul>
+                    </div>
+                    <div class="card-info">
+                        <h3>🧮 Matemática</h3>
+                        <ul>
+                            <li>Operações com reais, porcentagem, notação científica</li>
+                            <li>Proporcionalidade direta/inversa, PA e PG</li>
+                            <li>Funções: afim (1º grau), quadrática, exponencial, logaritmos</li>
+                            <li>Sistemas lineares (até 3 incógnitas)</li>
+                            <li>Geometria plana: polígonos, triângulo retângulo, áreas</li>
+                            <li>Sólidos (prisma, cilindro, pirâmide, cone): áreas e volumes</li>
+                            <li>Contagem: princípio multiplicativo, permutação, arranjo, combinação</li>
+                            <li>Probabilidade (simples, independente, condicional)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>🔗 Alinhamento com a Prova Paulista e análise de itens</h2>
+                <div class="item-destaque">
+                    <p><strong>✓ O que cai no SARESP, cai antes na Prova Paulista.</strong> As matrizes são alinhadas (Guia do Currículo Priorizado e Aprendizagens Essenciais).</p>
+                </div>
+                <div class="grid-2col">
+                    <div class="card-info">
+                        <h3>Notação científica (9EF.MT06)</h3>
+                        <p>380.500.000 = 3,805 × 10⁸. Habilidade fundamental para expressar números muito grandes/pequenos.</p>
+                    </div>
+                    <div class="card-info">
+                        <h3>Porcentagem (3EM.MT01)</h3>
+                        <p>Restaurante com 8% de taxa sobre R$250 → valor final R$270,00. Aplicação direta de porcentagem.</p>
+                    </div>
+                    <div class="card-info">
+                        <h3>Função do 1º grau (3EM.MT07)</h3>
+                        <p>Tanque de 50L: consumo linear → y = –x/10 + 50. Interpretação gráfica e algébrica.</p>
+                    </div>
+                    <div class="card-info">
+                        <h3>Análise combinatória</h3>
+                        <p>Cardápio: 5 lanches × 4 bebidas = 20 pedidos. Princípio multiplicativo essencial.</p>
+                    </div>
+                </div>
+
+                <h2>📊 Uso da nota e encaminhamentos pedagógicos</h2>
+                <table>
+                    <thead><tr><th>Componente avaliativo</th><th>Peso na nota do 2º bimestre</th></tr></thead>
+                    <tbody>
+                        <tr><td>Prova Paulista</td><td>25%</td></tr>
+                        <tr><td><strong>SARESP 3ª série</strong></td><td><strong>25%</strong></td></tr>
+                        <tr><td>Outras avaliações (tarefas, simulados)</td><td>50%</td></tr>
+                    </tbody>
+                </table>
+                <div class="card-info">
+                    <h3>Recomendações pedagógicas pós-prova</h3>
+                    <ul>
+                        <li>Retomar habilidades prioritárias do Mapa SARESP</li>
+                        <li>Usar itens da Prova Paulista como devolutiva estruturada</li>
+                        <li>Analisar distratores para desconstruir erros comuns</li>
+                        <li>Trabalhar com agrupamentos produtivos</li>
+                        <li>Estudo dirigido via <strong>Prepara SP</strong> (trilha autodirigida, listas semanais, chatbot)</li>
+                    </ul>
+                </div>
+                <div class="item-destaque">
+                    <p>“A avaliação não termina no resultado: começa nele o compromisso pedagógico com a aprendizagem.” – Inspirado em Perrenoud</p>
+                </div>
+            </div>
+
+            <!-- ABA 2: RESOLUÇÃO SEDUC Nº 58/2026 (detalhada) -->
+            <div id="resolucao" class="tab-content">
+                <div style="max-height: 600px; overflow-y: auto; padding-right: 12px;">
+                    <h2>📜 RESOLUÇÃO SEDUC Nº 58, DE 27 DE MAIO DE 2026</h2><br>
+                    <h3><a href="https://doe.sp.gov.br/executivo/secretaria-da-educacao/resolucao-seduc-n-58-de-27-de-maio-de-2026-20260528112412201880620">RESOLUÇÃO SEDUC Nº 58</a></p></h3><br>
+                    <p><em>Dispõe sobre a aplicação do SARESP e do Provão Paulista Seriado em 2026.</em></p>
+                    <p>O Secretário da Educação, considerando a importância do SARESP para indicadores educacionais, o regime de colaboração, a Lei nº 17.575/2022, o Decreto 67.941/2023, a Instrução Normativa nº 2/2025, e a necessidade de assegurar a série histórica do ensino médio, resolve:</p>
+                    
+                    <h3>Capítulo I – DO SARESP</h3>
+                    <p><strong>Art. 1º</strong> – O SARESP é constituído por provas cognitivas aplicadas de forma censitária a todas as escolas da rede SEDUC, incluindo 2º e 5º EF, 6º ao 9º EF, 1ª a 3ª EM.<br>
+                    § 1º – Integra o SARESP o Provão Paulista Seriado.<br>
+                    § 3º – Os itens das provas têm sigilo reservado por até 5 anos.</p>
+                    <p><strong>Art. 4º</strong> – Público-alvo definido pelas bases de alunos: 04/05/2026 para o SARESP 3ª EM; 17/08/2026 para as demais etapas.</p>
+                    <p><strong>Art. 11</strong> – O SARESP da 3ª Série do Ensino Médio será aplicado exclusivamente em formato digital, com prova objetiva de múltipla escolha (LP e Matemática).<br>
+                    § 1º – As notas não serão utilizadas para ingresso ao ensino superior (desvinculado do Provão).<br>
+                    § 2º – Baseado no Currículo Paulista.</p>
+                    <p><strong>Art. 13</strong> – Tempo de prova: até 3 horas, permanência mínima de 1h30.</p>
+                    
+                    <h3>Capítulo II – DO PROVÃO PAULISTA SERIADO</h3>
+                    <p><strong>Art. 14</strong> – O Provão Paulista Seriado constitui-se como avaliação em caráter de vestibular, com edital específico.<br>
+                    <strong>Art. 15</strong> – Provão I (1ª série), II (2ª série), III (3ª série) – anuais e consecutivos.<br>
+                    <strong>Art. 19</strong> – Horários: 8h às 12h (I e II); 8h às 13h no 1º dia do III; permanência mínima de 2h (2h30 no 1º dia do III).<br>
+                    <strong>Art. 22</strong> – Composição da nota final conforme Anexo V (pesos cumulativos).<br>
+                    <strong>Art. 24</strong> – Candidatos devem escolher área de conhecimento (CH/Artes, Biológicas/Saúde, Exatas/Tecnológicas) com pesos diferenciados.</p>
+                    
+                    <h3>Capítulo III – DA APLICAÇÃO (Acessibilidade e procedimentos)</h3>
+                    <p><strong>Art. 27</strong> – Acréscimo de até 1h para estudantes elegíveis à educação especial.<br>
+                    <strong>Art. 28</strong> – Provas aplicadas por professores de outras escolas (exceto exceções para anos iniciais).<br>
+                    <strong>Art. 29</strong> – Condições de acessibilidade: braile, ledor, Libras, sala extra, tempo adicional, apoio profissional.<br>
+                    <strong>Art. 30</strong> – Acompanhamento por fiscais externos e representantes de pais no SARESP.</p>
+                    
+                    <h3>Disposições finais e anexos</h3>
+                    <p><strong>Art. 37</strong> – Turnos de aplicação conforme frequência do estudante; estudante trabalhador tem direito a comprovante.<br>
+                    Os Anexos I a V trazem cronogramas detalhados, aplicações extras (feriados e Fundação CASA) e tabelas de composição de nota final (3 anos, 4 anos, EJA).</p>
+                    <p style="margin-top: 1rem; font-size: 0.85rem;">📌 A íntegra da Resolução está disponível no Diário Oficial do Estado. Esta aba apresenta os principais dispositivos para orientação das escolas.</p>
+                </div>
+            </div>
+
+            <!-- ABA 3: ANEXOS ESSENCIAIS (datas extras, Provão extra, composição de nota e pesos) -->
+            <div id="anexos" class="tab-content">
+                <h2>📅 SARESP 3ª série – Aplicação extra (Anexo III)</h2>
+                <table>
+                    <thead><tr><th>Série</th><th>Dia de aplicação</th><th>Prova</th><th>Modelo</th></tr></thead>
+                    <tbody>
+                        <tr><td>3ª série EM (série histórica)</td><td><strong>26/06/2026</strong></td><td>Linguagens e Matemática</td><td>Digital</td></tr>
+                    </tbody>
+                </table>
+                <p><em>* Destinado a escolas com impossibilidade na data regular (23/06) por feriado municipal ou motivo de força maior.</em></p>
+
+                <h2>📌 PROVÃO PAULISTA SERIADO – Aplicação extra (Anexo IV – Fundação CASA e feriados)</h2>
+                <table>
+                    <thead><tr><th>Série</th><th>Caderno</th><th>Áreas do Conhecimento</th><th>Data</th><th>Duração</th></tr></thead>
+                    <tbody>
+                        <tr><td rowspan="2">1ª série</td><td>1º dia</td><td>Linguagens + Ciências da Natureza</td><td>09/12/2026</td><td>4h (mín. 2h)</td></tr>
+                        <tr><td>2º dia</td><td>Matemática + Ciências Humanas</td><td>10/12/2026</td><td>4h (mín. 2h)</td></tr>
+                        <tr><td rowspan="2">2ª série</td><td>1º dia</td><td>Linguagens + Ciências da Natureza</td><td>09/12/2026</td><td>4h (mín. 2h)</td></tr>
+                        <tr><td>2º dia</td><td>Matemática + Ciências Humanas</td><td>10/12/2026</td><td>4h (mín. 2h)</td></tr>
+                        <tr><td rowspan="2">3ª série</td><td>1º dia</td><td>Linguagens + Ciências da Natureza + Redação</td><td>16/11/2026</td><td>5h (mín. 2h30)</td></tr>
+                        <tr><td>2º dia</td><td>Matemática + Ciências Humanas</td><td>17/11/2026</td><td>4h (mín. 2h)</td></tr>
+                    </tbody>
+                </table>
+                <p><small>* Acréscimo de até 1h para candidatos elegíveis à educação especial.</small></p>
+
+                <h2>🏆 Composição da Nota Final – Provão Paulista Seriado (Anexo V)</h2>
+                <div class="grid-2col">
+                    <div class="card-info">
+                        <h3>Quadro I (3 anos – ingresso em 2026)</h3>
+                        <ul>
+                            <li>2026 (1ª série): 25%</li>
+                            <li>2027 (2ª série): 25%</li>
+                            <li>2028 (3ª série): 30% múltipla + 20% redação</li>
+                        </ul>
+                    </div>
+                    <div class="card-info">
+                        <h3>Quadro II (3ª série em 2026 – concluintes)</h3>
+                        <ul>
+                            <li>2024 (1ª série): 25%</li>
+                            <li>2025 (2ª série): 25%</li>
+                            <li>2026 (3ª série): 30% + 20% redação</li>
+                        </ul>
+                    </div>
+                    <div class="card-info">
+                        <h3>Quadro III (Ensino Médio 4 anos – 2ª série em 2026)</h3>
+                        <ul>
+                            <li>2026 (2ª série): 25%</li>
+                            <li>2027 (3ª série): 25%</li>
+                            <li>2028 (4ª série): 30% + 20% redação</li>
+                        </ul>
+                    </div>
+                    <div class="card-info">
+                        <h3>Quadro IV (EJA – conclusão em 2026)</h3>
+                        <p>Provão III: 80% múltipla escolha + 20% redação</p>
+                    </div>
+                </div>
+
+                <h3>⚖️ Pesos por área do conhecimento – Provão III (Quadro V)</h3>
+                <table>
+                    <thead><tr><th>Prova</th><th>CH/Artes</th><th>Exatas/Tecnológicas</th><th>Biológicas/Saúde</th></tr></thead>
+                    <tbody>
+                        <tr><td>Linguagens e suas Tecnologias</td><td>2</td><td>1</td><td>2</td></tr>
+                        <tr><td>Matemática e suas Tecnologias</td><td>1</td><td>3</td><td>1</td></tr>
+                        <tr><td>Ciências Humanas e Sociais Aplicadas</td><td>2</td><td>1</td><td>1</td></tr>
+                        <tr><td>Ciências da Natureza</td><td>1</td><td>2</td><td>3</td></tr>
+                        <tr><td>Produção Textual (Redação)</td><td>2</td><td>1</td><td>1</td></tr>
+                    </tbody>
+                </table>
+                <div class="item-destaque">
+                    <p>🔹 <strong>Grupos de vagas (Art. 26):</strong> Grupo A (rede estadual SEDUC), Grupo B (municipais, EJA, USP/UNESP/UNICAMP), Grupo C (Centro Paula Souza). Vagas proporcionais ao número de inscritos, com remanejamento entre grupos.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>SARESP 2026 – Secretaria da Educação do Estado de São Paulo | Diretoria de Avaliação</p>
+            <p>Dúvidas: <strong>davaliacao@educacao.sp.gov.br</strong> | Site oficial: <a href="#">saresp.sp.gov.br</a></p>
+            <p style="margin-top: 8px;">✔️ Acompanhe as datas com sua escola e utilize o <strong>Prepara SP</strong> para estudo dirigido.</p>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-tab');
+            tabs.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            contents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === target) content.classList.add('active');
+            });
+        });
+    });
+</script>
+</body>
+</html>
